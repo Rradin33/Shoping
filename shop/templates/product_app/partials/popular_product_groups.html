@@ -1,0 +1,33 @@
+{% comment %} in baraye daste mahbobtarin mahsolat ast {% endcomment %}
+
+<div class="block block--highlighted block-categories block-categories--layout--compact">
+	<div class="container">
+		<div class="block-header">
+			<h3 class="block-header__title">دسته های محبوب</h3>
+			<div class="block-header__divider"></div>
+		</div>
+		<div class="block-categories__list">
+			{% for group in product_groups %}
+				<div class="block-categories__item category-card category-card--layout--compact">
+					<div class="category-card__body">
+						<div class="category-card__image">
+							<a href="{% url 'products:products_of_group' slug=group.slug %}"> 
+								<img src="{{media_url}}{{group.image_name}}" alt="">      {% comment %} ba in code axshai k dar manel admin baraye kalaha apload kardim roye safhe site namayesh dade mishavad, ( image_name ) esm feildi ast k dar models.py dar class ProductGroups neveshtim {% endcomment %}
+							</a>
+						</div>
+						<div class="category-card__content">
+							<div class="category-card__name">
+								<a href="{% url 'products:products_of_group' slug=group.slug %}">{{group.group_title}}</a></div>                     {% comment %} ba in code esm kalahai k dar panel admin neveshtim va sargoroh hastand baraye ma zaher mishavand va chon dar views.py daron def ( get_popular_product_groups ) neveshtim faghat 4tashon zaher shavad daron site faghat 4tashon zaher mishavand, ( group_title ) esm feildi ast k dar models.py dar class ProductGroups neveshtim {% endcomment %}      
+							<div class="category-card__products">{{group.products_of_groups.all|length}} محصول</div>       {% comment %} ba in code dakhele site dar ghesmate ( daste mahbobha ) zire har mahsol neveshte mishavad k in daste goroh mahsol chandta kala dare {% endcomment %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			<a href="{% url 'products:product_groups' %}">همه</a> 
+		</div>
+	</div>
+</div>
+
+
+{% comment %}  {% endcomment %}
+

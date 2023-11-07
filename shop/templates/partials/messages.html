@@ -1,0 +1,10 @@
+{% if messages %}
+	{% for message in messages %}
+		<h1 class="alert alert-{{message.tags}}">
+				{{message}}
+		</h1>
+	{% endfor %}
+{% endif %}
+
+{% comment %}  in codha ra inja minevisim k tamame messageha va errorha roye safe site ma zaher beshan, agar nanvisim site error ha va payamhaye sabtenam moshtari ra beheshon neshan nemidahad ra b ma neshan nemidahad  {% endcomment %}
+

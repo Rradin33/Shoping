@@ -1,0 +1,46 @@
+{% comment %} in yek safhe html kamel ast k mishavad ghaleb tamame safhehaye site, masalan vaghti vared site mishavi bala va pain safhe site yek seri cadr va etela'at ast k vaghti safhehaye site ra avaz mikoni an cadrha va etela'atha avaz nemishavand va dar tamame safheha sabet hastand, banabar in ghaleb asli safhe site ra inja misazim va address in template ra be html haye digar midahim k be ham vast beshavand, yani balaye tamae safhehaye html minevisim ( {% extends 'main_template.html' %} ) k b in safhe vasl beshavand va ghalebe asli hameye safhehaye site yeki shavad {% endcomment %}
+
+
+{% load static %}         {% comment %} in ra minevisim k folder (static) b inja vasl shavad, chon inja az (vendor, css, js) estefade kardim va hameye inha dar folder static hastand baraye hamin bayad in code ra benvisim ta b ham vast shavand, bad az inke code ra neveshtim ghabl az tamame kalamehaye (vendoe, css, js) minevisim (static) {% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>
+      {% block title %}
+      
+      {% endblock title %}              {% comment %} inha ghaleb asli safhe html site ma hastand va jaye (title) dar safhehaye html digar minevisim va por mikonim, masalan minevisim (safhe aval) {% endcomment %}        
+   </title>
+
+   <link rel="icon" type="image/png" href="images/favicon.png">
+	<!-- css -->
+	<link rel="stylesheet" href="{% static 'vendor/bootstrap-4.5.3/css/bootstrap.min.css' %} ">
+	<link rel="stylesheet" href="{% static 'vendor/owl-carousel-2.3.4/assets/owl.carousel.min.css' %} ">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	<!-- js -->
+	<script src="{% static 'vendor/jquery-3.3.1/jquery.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-4.5.3/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'vendor/owl-carousel-2.3.4/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<!-- font - fontawesome -->
+	<link rel="stylesheet" href="{% static 'vendor/fontawesome-5.6.3/css/all.min.css' %}">
+</head>
+
+
+<body>
+   {% include 'partials/header.html' %}          {% comment %} inja adress header ra midahim k cadre balaye site sakhte shavad {% endcomment %}
+   {% include 'partials/messages.html' %}        {% comment %} inja addres file ( messages.html ) ra minevisim k hamishe tamame messageha va error ha ba roye safhe site zahe shavand {% endcomment %}
+	{% block content %}
+
+   {% endblock content %}               {% comment %} inha ghaleb asli safhe html site ma hastand va jaye (content) dar safhehaye html digar codhaye Frontend migozarim,  {% endcomment %}
+   {% include 'partials/footer.html' %}          {% comment %} inja adress footer ra midahim k cadre pain site sakhte shavad {% endcomment %}
+</body>
+</html>
+
+
+
+{% comment %}  {% endcomment %}

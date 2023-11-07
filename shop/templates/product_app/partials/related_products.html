@@ -1,0 +1,9 @@
+{% if related_products %}
+<div class="product-flexbox" style="">
+	{% for product in related_products %}
+		{% include 'partials/products/product_box.html' with type=1 %}
+	{% endfor %}
+</div>
+{% endif %}
+
+
