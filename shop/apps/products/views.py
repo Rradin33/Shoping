@@ -170,4 +170,10 @@ class ShowCompareListView(View):              # yani har bar k ShowCompareListVi
       compareList.delete_from_compare_product(productId)  # va bad az class CompareProduct def delete_from_compare_product ro seda mizanim va id kala ra vasash va az oun def faghat productId ra migirim, chon in def ra injori neveshtim ( def delete_from_compare_product(self,productId) )
       return redirect("products:compare_table")
       
-      
+
+
+def delete_from_compare_list(request):            # vaghti baraye in def request ersal mishavad yani vaghti oun ra seda mizanim
+      productId = request.GET.get('productId')       # bad id product ro migire mirize dakhele sabade productId
+      compareList = CompareProduct(request)          # va bad class CompareProduct ro behesh requesr midim yani sedash mizanim, dar kol yani ba in code yek nemone az class CompareProduct misazim
+      compareList.delete_from_compare_product(productId)  # va bad az class CompareProduct def delete_from_compare_product ro seda mizanim va id kala ra vasash va az oun def faghat productId ra migirim, chon in def ra injori neveshtim ( def delete_from_compare_product(self,productId) )
+      return redirect("products:compare_table")
